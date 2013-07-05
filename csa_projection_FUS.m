@@ -3,7 +3,7 @@ function [X,L1,L2] = csa_projection_FUS( Z,w1,w2,l )
 %
 %  Input :
 %    - Signal vector Z (length d)
-%    - Parameters w1,w2,l (integers)
+%    - Parameters w1,w2,l (positive integers)
 %
 %  Output :
 %    - Opt. seg. of Z (see below)
@@ -22,7 +22,9 @@ function [X,L1,L2] = csa_projection_FUS( Z,w1,w2,l )
 %    - k2 non-zero coefficients
 %
 %  subject to k1 * w1 + k2 * w2 <= p - l
-%  p = w1*(d-1) + w2*d
+%  (k1*w1+k2*w2 is the co-sparsity of the resulting signal, and can
+%  be interpreted as a cost function of the signal)
+%  p = w1*(d-1) + w2*d > l
 %
 %  The algorithm that is used is described (for w1=w2=1)
 %  in the paper Greedy-Like Algorithms for the Cosparse Analysis Model
